@@ -1,0 +1,394 @@
+/* Este es el body de toda la página. Nota: maneja el fondo y la extensión vertical y horizontal de la página*/
+body{
+    background-color:#ececf5;
+    background-size: 25%, 25%;
+    background-image: url('/images/bg-bottom.svg'), url('/images/bg-top.svg');
+    background-repeat: no-repeat,no-repeat;
+    background-position: left bottom, right top;
+    vertical-align: middle;
+    height: 100vh;
+    margin: 0px;
+}
+
+/* Este es el main que contiene toda la página. Nota: configura la fuente y la extensión vertical y horizontal*/
+
+main{
+    text-align: center;  
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    height: 100vh;
+    width: 100vw;
+}
+
+nav{
+    width: 100%;
+}
+
+/* Estilo del título principal our pricing*/
+h1 {
+    color:hsl(233, 13%, 49%) ;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 30px;
+    padding: 3.5%;
+  }
+
+  /* Estilo descripción de los planes menos el precio*/
+  h4 {
+    font-weight:normal;
+    font-size: 15px;
+  }
+
+ /* Inicia Menú hamburguesa */
+
+ /* Logo del menú hamburguesa */
+
+ #menu {
+    display: block;
+    position: relative;
+    height: 3.5em;
+    background: hsl(237, 63%, 64%);
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+ 
+ .logo {
+    position: absolute;
+    z-index: 3;
+    width: 2em;
+    height: 2em;
+    left: 1%;
+    padding: 0.3em;
+}
+
+  /* Menú hamburguesa */
+
+ .hamburguesa {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    left: 87%;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+
+#linea {
+    display: block;
+    width: 30px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    left: 87%;
+    top: 20%;
+    background: white;
+    border-radius: 3px;
+    transform-origin: 4px 0px;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+}
+
+#linea:first-child {
+    transform-origin: 0% 0%;
+}
+
+#linea:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+  /* Animación (X) de la hamburguesa */
+  
+/*animación de las 3 líneas en 45º*/
+  .hamburguesa:checked~#linea {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: white;
+}
+
+/*Neceitamos que la animación sea en 2 líneas por lo tanto eliminamos 1 de ellas (la de la mitad).*/
+
+.hamburguesa:checked~#linea:nth-last-child(3) {
+    opacity: 0; /* esto la hace transparente*/
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*animación de la lína en 45º, dirección opuesta para que se muestre en forma de x */
+.hamburguesa:checked~#linea:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*Configuración de los items del menú hamburguesa*/
+#menu_items{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    background: hsl(237, 63%, 64%);
+    transform-origin: 0% 0%;
+    transform: translate(0, -150%);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+#menu_items a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1rem;
+    color: white;
+    padding: 0 0 1em 0;
+}
+
+#menu_items a:hover {
+    color: hsl(232, 13%, 33%);
+}
+
+/*Animación del despliegue del menú*/
+
+.hamburguesa:checked~#menu_items {
+    transform: translate(0, 6%);
+}
+
+ /* Fin del Menú hamburguesa */
+
+
+/* Estilo del contenido de la página */
+.caja_mayor {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Definición de estilos para monthly y annually */
+.caja {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px;
+    margin: 5px;
+    height: 20px;
+    color: hsl(234, 14%, 74%);
+    }
+
+/* Definición de estilos para los 3 planes */
+.planes {
+    display: block;
+    margin: 20px;
+    padding: 20px;
+}
+
+/* Definición de estilos para los 2 planes de fondo blanco o laterales */
+.plan{
+    display: inline-block;
+    vertical-align: middle;
+    color:hsl(232, 13%, 33%);
+    border-radius: 10px;
+    border: 1px white;
+    padding: 1em 1.5em 1em 1.5em;
+    margin:  1em 0em 1em 0em;
+    width: 18em;
+    text-align: center;
+    background: white;
+    box-shadow: hsl(234, 14%, 74%);
+    list-style: none;
+   }
+
+/* Definición de estilos para el plan central o de color morado*/
+   .plan2{
+    display: inline-block;
+    vertical-align: middle;
+    color:hsl(240, 78%, 98%);
+    border-radius: 10px;
+    border: 1px;
+    padding: 2em 1.5em 2em 1.5em;
+    margin:  1em 0em 1em 0em;
+    width: 18em;
+    text-align: center;
+    background: linear-gradient(to bottom, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    box-shadow: hsl(234, 14%, 74%);
+    list-style: none;
+   }
+
+/* Definición de estilos para grosor y línea de los items (descripción de los planes) cajas laterales- lineas grises-*/
+.item {
+    min-height: 20px;
+    border-bottom: 2px solid hsl(240, 78%, 98%);
+}
+
+/* Definición de estilos para grosor y línea de los items (descripción de los planes) cajas  central- lineas moradas- */
+.item_2 {
+    min-height: 20px;
+    border-bottom: 2px solid  hsl(236, 72%, 79%);
+}
+
+/* Definición de estilos para botón morado de las cajas laterales o blancas*/
+  .boton {
+    padding: 1em;
+    margin: 1.5em 0 1em 0;
+    text-transform: uppercase;
+    background-image: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    border-radius: 5px;
+    font-size: 0.7em;
+    font-weight: bolder;
+    color: white;
+  }
+
+  /* Definición de estilos para botón blanco de la caja central o morada*/
+  .boton_central {
+    padding: 1em;
+    margin: 1.5em 0 1em 0;
+    text-transform: uppercase;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 0.7em;
+    font-weight: bolder;
+    color:hsl(232, 13%, 33%);
+  }
+
+   /* Estilo descripción de los precios de las cajas valor anual*/
+.precio{ 
+       display: block;
+       font-size: 55px;
+       padding: 0.2em 0em 0.6em 0em;
+   }
+
+      /* Estilo descripción de los precios de las cajas valor mensual*/
+.precio2{ 
+       display: none;
+       font-size: 55px;
+       padding: 0.2em 0em 0.6em 0em;
+   }
+   
+      /* Acción del switch de los precios*/
+input:checked~.planes .plan .precio2 {
+    display: block;
+}
+
+input:checked~.planes .plan .precio {
+    display: none;
+}
+
+input:checked~.planes .plan2 .precio2 {
+    display: block;
+}
+
+input:checked~.planes .plan2 .precio {
+    display: none;
+}
+      /* Fin de la acción del switch de los precios*/
+
+/* Estilo del botón switch*/
+  
+.toggle {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 62px;
+    height: 32px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    border-radius: 50px;
+    overflow: hidden;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: hsl(237, 63%, 64%);
+    transition: background-color ease 0.3s;
+}
+
+.toggle:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    z-index: 2;
+    width: 28px;
+    height: 28px;
+    background:white;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    font: 10px/28px Helvetica;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-indent: -22px;
+    word-spacing: 37px;
+    color: hsl(237, 63%, 64%);
+    text-shadow: -1px -1px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
+}
+
+.toggle:checked {
+    background-color: hsl(237, 63%, 64%);
+}
+
+.toggle:checked:before {
+    left: 32px;
+}
+/* Fin del estilo del botón switch*/
+
+/* [Configuración responsive para tablets] */
+@media screen and (max-width: 1024px) and (min-width: 768px){
+
+    h1 {
+        color:hsl(233, 13%, 49%) ;
+        text-align: center;
+        font-weight: bolder;
+        font-size: 30px;
+        padding: 4.5%;
+      }
+   
+  }
+
+  /* [Configuración responsive para celulares] */
+@media screen and (max-width: 768px){
+    h1 {
+        padding: 5%;
+      }
+      .planes {
+        display: block;
+        margin: 0px;
+        padding: 0px;
+    }
+      .plan{
+
+        width: 10 em;
+       }
+    
+
+       .plan2{
+        width:10 em;
+       }
+}
+
+@media screen and (max-width: 360px){
+    h1 {
+        padding: 20% 0% 5% 0%;
+      }
+
+      .caja_mayor {
+        padding: 0px;
+        margin: 0px;
+    }
+      .planes {
+        display: block;
+        margin: 0px;
+        padding: 0px;
+    }
+      .plan{
+
+        width: 3 em;
+       }
+    
+
+       .plan2{
+        width: 3 em;
+       }
+}
